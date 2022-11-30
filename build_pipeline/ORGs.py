@@ -4,7 +4,7 @@ all_species = [
     # "Homo_sapiens",
     "Mus_musculus", # needs to be included for ref_aligned j region thingy
     # "Rattus_norvegicus",
-    # "Gallus_gallus",
+    "Gallus_gallus",
     # "Oryctolagus_cuniculus",
     "Macaca_mulatta",
     # "Sus_scrofa",
