@@ -29,7 +29,7 @@ These are chucked into curated alignments and hmmbuild used to create the HMMs.
 import os, sys
 from subprocess import Popen, PIPE
 from FastaIO import chunkify
-from .ORGs import all_species, all_tr_species, translations
+from ORGs import all_species, all_tr_species, translations
 
 amino_acids = sorted(list("QWERTYIPASDFGHKLCVNM"))
 acid_set = set( amino_acids+["."])
@@ -37,27 +37,6 @@ acid_set = set( amino_acids+["."])
 file_path  = os.path.split(__file__)[0]
 fasta_path = os.path.join( file_path, "IMGT_sequence_files", "fastafiles" )
 curated_path = os.path.join( file_path, "curated_alignments" )
-
-# all_species = ["Homo_sapiens",
-#            "Mus",
-#            "Rattus_norvegicus",
-#            "Oryctolagus_cuniculus",
-#            "Macaca_mulatta",
-#            "Sus_scrofa",
-#            "Vicugna_pacos",
-#            "Bos_taurus"]
-#
-# all_tr_species = ["Homo_sapiens",
-#            "Mus",
-# ]
-# translations = {"Homo_sapiens":"human",
-#            "Mus":"mouse",
-#            "Rattus_norvegicus":"rat",
-#            "Oryctolagus_cuniculus":"rabbit",
-#            "Macaca_mulatta":"rhesus",
-#            "Sus_scrofa":"pig",
-#            "Vicugna_pacos":"alpaca",
-#            "Bos_taurus":"cow"}
 
 
 def read_alignment(input_file, read_all=False, region_name=""):

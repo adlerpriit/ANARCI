@@ -19,7 +19,7 @@ all_tr_species = [
 
 translations = {
     "Homo_sapiens":"human",
-    "Mus":"mouse",
+    "Mus_musculus":"mouse",
     "Rattus_norvegicus":"rat",
     "Gallus_gallus":"chicken",
     "Oryctolagus_cuniculus":"rabbit",

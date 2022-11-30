@@ -9,7 +9,7 @@ http://www.imgt.org/vquest/refseqh.html
 from html.parser import HTMLParser
 from html.entities import name2codepoint
 import urllib.request, urllib.parse, urllib.error, os, sys
-from .ORGs import all_species, all_tr_species
+from ORGs import all_species, all_tr_species
 
 
 
@@ -43,31 +43,6 @@ urls = { "HV": "http://www.imgt.org/IMGT_GENE-DB/GENElect?query=7.3+IGHV&species
          #"LC": "http://www.imgt.org/IMGT_GENE-DB/GENElect?query=7.3+IGLC&species=%s",
        }
 
-
-
-# # Species as of 04-12-14
-# # Species as of 02-06-16 - alpaca added
-# # These are retrieved for all the antibodies
-# all_species = ["Homo+sapiens",
-#            "Mus",
-#            "Rattus+norvegicus",
-#            "Oryctolagus+cuniculus",
-#            "Macaca+mulatta",
-#            "Sus+scrofa",
-#            "Vicugna+pacos",
-#            "Bos+taurus"]
-#
-#
-# # These are retrieved for the tcr chains. There are a few more for gamma and delta chains but
-# # they are rare (structurally anyway) that it does not seem worth it.
-# all_tr_species = ["Homo+sapiens",
-#            "Mus",
-# ]
-#
-#
-# # These do not have light chain sequences so we ignore (they're fish)
-# #           "Oncorhynchus+mykiss",
-# #           "Danio+rerio" ]
 
 # Html parser class.
 class GENEDBParser(HTMLParser):
@@ -176,7 +151,8 @@ def main():
     for gene_type in urls:
         for species in all_species:
             if gene_type[0] in "ABGD" and species not in all_tr_species: continue # we don't want TCRs for all organisms
-            if gene_type[0] in "KL" and species == "Vicugna+pacos": continue # alpacas don't have light chains
+            if gene_type[0] in "KL" and species == "Vicugna_pacos": continue # alpacas don't have light chains
+            if gene_type[0] in "K" and species == "Gallus_gallus": continue # chicken don't have kappa chains
             if ripfasta(species, gene_type, force = False):
                 print("Failed to retrieve %s %s"%(species, gene_type), file=sys.stderr)
             else:
