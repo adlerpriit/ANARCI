@@ -208,7 +208,7 @@ def format_v_genes(valignments):
                 sequence = mouse_delta(sequence)
             elif chain_type == "L" and translations[species] == "chicken":
                 sequence = chicken_lambda(sequence)
-            elfi chain_type == 'H' and translations[species] == "rat":
+            elif chain_type == 'H' and translations[species] == "rat":
                 sequence = rat_heavy(sequence)
             new_valignments[entry][ seq ] = sequence[:108].ljust( 108 ).replace(" ",".")
             if new_valignments[entry][ seq ][103] != "C" or new_valignments[entry][ seq ][22] != "C":
