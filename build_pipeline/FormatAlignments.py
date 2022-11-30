@@ -206,6 +206,8 @@ def format_v_genes(valignments):
                 sequence = mouse_alpha(sequence)
             elif chain_type == "D" and translations[species] == "mouse":
                 sequence = mouse_delta(sequence)
+            elif chain_type == "L" and translations[species] == "chicken":
+                sequence = chicken_lambda(sequence)
             new_valignments[entry][ seq ] = sequence[:108].ljust( 108 ).replace(" ",".")
             if new_valignments[entry][ seq ][103] != "C" or new_valignments[entry][ seq ][22] != "C":
                 sys.stderr.write("Warning - this alignment doesn't feature CYS at position 23 and/or position 104.\n")
@@ -253,6 +255,14 @@ def mouse_alpha(sequence):
     Remove and return
     """
     return sequence[:8]+sequence[9:85]+sequence[86:]
+
+def chicken_lambda(sequence):
+    """
+    Chicken lambda chains have insertions. This screws up the alignment to everything else - not really IMGT gapped.
+    Remove and return
+    """
+    return sequence[:5]+sequence[6:46]+sequence[47:]
+
 
 def combine_sequences(vsequences, jsequences):
     """
