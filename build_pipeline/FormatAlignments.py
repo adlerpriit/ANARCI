@@ -198,6 +198,10 @@ def format_v_genes(valignments):
             sequence = valignments[entry][seq]
             if chain_type == "L" and translations[species] == "rhesus":
                 sequence = rhesus_lambda(sequence)
+            elif chain_type == "H" and translations[species] == "rhesus":
+                sequence = rhesus_heavy(sequence)
+            elif chain_type == "K" and translations[species] == "rhesus":
+                sequence = rhesus_kappa(sequence)
             elif chain_type == "A" and translations[species] == "mouse":
                 sequence = mouse_alpha(sequence)
             elif chain_type == "D" and translations[species] == "mouse":
@@ -227,7 +231,21 @@ def rhesus_lambda(sequence):
     Rhesus lambda chains have insertions. This screws up the alignment to everything else - not really IMGT gapped.
     Remove and return
     """
-    return sequence[:20]+sequence[21:51]+ sequence[53:]
+    return sequence[:20]+sequence[21:51]+sequence[53:]
+
+def rhesus_heavy(sequence):
+    """
+    Rhesus heavy chains have insertions. This screws up the alignment to everything else - not really IMGT gapped.
+    Remove and return
+    """
+    return sequence[:15]+sequence[16:26]+sequence[27:]
+
+def rhesus_kappa(sequence):
+    """
+    Rhesus kappa chains have insertion. This screws up the alignment to everything else - not really IMGT gapped.
+    Remove and return
+    """
+    return sequence[:20]+sequence[21:]
 
 def mouse_alpha(sequence):
     """

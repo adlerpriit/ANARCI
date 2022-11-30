@@ -59,7 +59,10 @@ class GENEDBParser(HTMLParser):
         if self.currenttag=="pre" and (self.currentnamedent ==">" or start):
             # Two different ways of parsing the html based on how IMGT have formatted the pages.
             # For some reason they format gene db differently sometimes (legacy?)
-            if start > 1: # If you encounter more than one line in the data with a fasta ">" symbol, all sequences will be in the same packet
+            if start > 0: # If you encounter more than one line in the data with a fasta ">" symbol,
+                          # all sequences will be in the same packet
+                          # NOTE: this used to be 1, but there are two real cases when this is not true
+                          # and there it is handled wrong.
                 name, sequence = None, ""
                 for l in split:
                     if not l: continue

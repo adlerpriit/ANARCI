@@ -1,15 +1,15 @@
 
 
 all_species = [
-    "Homo_sapiens",
-    "Mus_musculus",
-    "Rattus_norvegicus",
-    "Gallus_gallus",
-    "Oryctolagus_cuniculus",
+    # "Homo_sapiens",
+    # "Mus_musculus",
+    # "Rattus_norvegicus",
+    # "Gallus_gallus",
+    # "Oryctolagus_cuniculus",
     "Macaca_mulatta",
-    "Sus_scrofa",
+    # "Sus_scrofa",
     # "Vicugna_pacos",
-    "Bos_taurus"
+    # "Bos_taurus"
     ]
 
 all_tr_species = [
