@@ -59,4 +59,4 @@ print(o.decode())
 print(e.decode())
 
 shutil.copy( "curated_alignments/germlines.py", ANARCI_LOC )
-shutil.copytree( "HMMs", os.path.join(ANARCI_LOC, "dat/HMMs/") )
+shutil.copytree( "HMMs", os.path.join(ANARCI_LOC, "dat/HMMs/"), dirs_exist_ok=True )
