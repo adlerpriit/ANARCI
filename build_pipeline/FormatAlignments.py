@@ -165,7 +165,7 @@ def format_j_genes(jalignments):
 
     # Find the reference sequence and what we need to do to map
     for name, sequence in aligned:
-        if name == "Mus|H|Mus musculus|IGHJ3*01":
+        if name == "Mus_musculus|H|Mus musculus|IGHJ3*01":
             ref_aligned = sequence
             break
     start = ref_aligned.index( reference[0] )
