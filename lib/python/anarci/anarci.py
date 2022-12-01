@@ -108,7 +108,10 @@ def fasta_iter(fasta_name):
         header = next(header)[1:].strip()
         #header = header.next()[1:].strip()
         seq = "".join(s.strip() for s in next(faiter))
-        yield header, seq
+        try:
+            yield header, seq
+        except StopIteration:
+            return
 
 
 def write_fasta(sequences, f):
