@@ -73,7 +73,7 @@ def read_alignment(input_file, read_all=False, region_name=""):
         # These are the ones we care about and will be used
         try:
             if fields['accession_number'] == 'None':continue
-            if fields["functionality"]=="F" and not fields["partial"].strip() and not fields["reverse"].strip():
+            if fields["functionality"]=="F" and not fields["partial"].strip(): # and not fields["reverse"].strip():
                 if read_all:
                     pass
                 elif fields["allele"].split("*")[-1].strip()!="01":
