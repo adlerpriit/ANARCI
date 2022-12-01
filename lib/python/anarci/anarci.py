@@ -100,18 +100,14 @@ def fasta_iter(fasta_name):
     https://www.biostars.org/p/710/
     """
     if fasta_name.endswith( '.gz' ): # IOError raised upon iteration if not a real gzip file.
-        fh = gzip.open(fasta_name)
+        fh = gzip.open(fasta_name, 'rt')
     else:
         fh = open(fasta_name)
-    faiter = (x[1] for x in groupby(fh, lambda line: line[0] == ">"))
+    faiter = (g for k, g in groupby(fh, lambda line: line[0] == ">"))
     for header in faiter:
         header = next(header)[1:].strip()
-        #header = header.next()[1:].strip()
         seq = "".join(s.strip() for s in next(faiter))
-        try:
-            yield header, seq
-        except StopIteration:
-            return
+        yield header, seq
 
 
 def write_fasta(sequences, f):
