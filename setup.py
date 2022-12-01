@@ -18,7 +18,7 @@ setup(name='anarci',
       author='James Dunbar',
       author_email='opig@stats.ox.ac.uk',
       url='http://opig.stats.ox.ac.uk/webapps/ANARCI',
-      packages=['anarci'], 
+      packages=['anarci'],
       package_dir={'anarci': 'lib/python/anarci'},
       #package_data={'anarci': ['dat/HMMs/ALL.hmm',
       #                         'dat/HMMs/ALL.hmm.h3f',
@@ -43,7 +43,7 @@ except Exception as e:
 os.chdir("build_pipeline")
 
 try:
-    #shutil.rmtree("curated_alignments/")
+    shutil.rmtree("curated_alignments/")
     shutil.rmtree("muscle_alignments/")
     shutil.rmtree("HMMs/")
     shutil.rmtree("IMGT_sequence_files/")

@@ -78,7 +78,7 @@ def read_alignment(input_file, read_all=False, region_name=""):
                     pass
                 elif fields["allele"].split("*")[-1].strip()!="01":
                     continue
-                if set(list(sequence))- acid_set:
+                if set(list(sequence)) - acid_set:
     #                print >> sys.stderr,"Unexpected character in sequence"
     #                print >> sys.stderr,sequence
                     continue
