@@ -172,7 +172,7 @@ if __name__ == "__main__":
         print("Warning: Non IG chains cannot be numbered with the %s scheme. These will be ignored."%args.scheme, file=sys.stderr)
         allow = allow - set(["A","B","G","D"])
 
-    allowed_species = ['human', 'mouse', 'rat', 'chicken', 'rabbit', 'rhesus', 'pig', 'cow']
+    allowed_species = None
     if args.use_species:
         assert args.use_species in all_species, 'Unknown species'
         allowed_species = [args.use_species]

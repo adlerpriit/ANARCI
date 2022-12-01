@@ -763,7 +763,7 @@ def check_for_j( sequences, alignments, scheme ):
 # Main function for ANARCI
 # Name conflict with function, module and package is kept for legacy unless issues are reported in future.
 def anarci(sequences, scheme="imgt", database="ALL", output=False, outfile=None, csv=False, allow=set(["H","K","L","A","B","G","D"]),
-           hmmerpath="", ncpu=None, assign_germline=False, allowed_species=['human','mouse'], bit_score_threshold=80):
+           hmmerpath="", ncpu=None, assign_germline=False, allowed_species=None, bit_score_threshold=80):
     """
     The main function for anarci. Identify antibody and TCR domains, number them and annotate their germline and species.
 
@@ -950,7 +950,7 @@ def run_anarci( seq, ncpu=1, **kwargs):
 
 
 # Wrapper function for simple sequence in numbering and chain type out behaviour.
-def number(sequence, scheme="imgt", database="ALL", allow=set(["H","K","L","A","B","G","D"]), allowed_species=['human','mouse']):
+def number(sequence, scheme="imgt", database="ALL", allow=set(["H","K","L","A","B","G","D"]), allowed_species=None):
     """
     Given a sequence string, use anarci to number it using the scheme of choice.
     Only the first domain will be recognised and numbered
